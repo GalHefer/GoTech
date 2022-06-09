@@ -1,0 +1,123 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-09T09:39:52.618Z",
+    "end": "2022-06-09T09:39:53.876Z",
+    "duration": 1258,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "10020663-6a30-4840-b1c3-e968017af77e",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2522fc1b-ce84-41ab-bfbd-5d82218f0c83",
+          "title": "Restaurants tests",
+          "fullFile": "C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts",
+          "file": "C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook: Reset restaurant server in \"Restaurants tests\"",
+              "fullTitle": "Restaurants tests \"before all\" hook: Reset restaurant server in \"Restaurants tests\"",
+              "timedOut": false,
+              "duration": 470,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        return __generator(this, function (_a) {\n            switch (_a.label) {\n                case 0: \n                //Arrange\n                return [4 /*yield*/, restaurantsAPI_1.default.resetServer()];\n                case 1:\n                    //Arrange\n                    _a.sent();\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "err": {},
+              "uuid": "b405fd50-0738-4f86-9136-817c9f851f92",
+              "parentUUID": "2522fc1b-ce84-41ab-bfbd-5d82218f0c83",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "validate score between 0-5",
+              "fullTitle": "Restaurants tests validate score between 0-5",
+              "timedOut": false,
+              "duration": 757,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "return __awaiter(void 0, void 0, void 0, function () {\n        var myNewRest, createResponse, restaurants, actualAmount, index;\n        var _a, _b;\n        return __generator(this, function (_c) {\n            switch (_c.label) {\n                case 0:\n                    myNewRest = { address: \"My Addess 1\", id: 233, name: \"My Restaurant\", score: 10 };\n                    return [4 /*yield*/, restaurantsAPI_1.default.createRestaurant(myNewRest)];\n                case 1:\n                    createResponse = _c.sent();\n                    return [4 /*yield*/, restaurantsAPI_1.default.getRestaurants()];\n                case 2:\n                    restaurants = _c.sent();\n                    actualAmount = 0;\n                    if (((_a = restaurants.data) === null || _a === void 0 ? void 0 : _a.length) != null) {\n                        actualAmount = (_b = restaurants.data) === null || _b === void 0 ? void 0 : _b.length;\n                    }\n                    if (restaurants.data) {\n                        for (index = 0; index < actualAmount; index++) {\n                            if (restaurants.data[index].score > 5 || restaurants.data[index].score < 0) {\n                                (0, chai_1.expect)(restaurants.error).to.equal(\"a restaurant is off\");\n                                (0, chai_1.expect)(restaurants.success).to.be.true;\n                                (0, chai_1.expect)(restaurants.status).to.equal(200);\n                                console.log(\"a restaurant's score is off the limit of 0-5\");\n                            }\n                        }\n                    }\n                    return [2 /*return*/];\n            }\n        });\n    });",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'a restaurant is off'",
+                "estack": "AssertionError: expected undefined to equal 'a restaurant is off'\n    at C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts:105:50\n    at step (C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts:33:23)\n    at Object.next (C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts:14:53)\n    at fulfilled (C:\\Users\\Gal\\Desktop\\GoTech Code\\src\\tests\\restaurant.spec.ts:5:58)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)",
+                "diff": null
+              },
+              "uuid": "dd7bed7e-1365-4146-bbce-92a635feb51c",
+              "parentUUID": "2522fc1b-ce84-41ab-bfbd-5d82218f0c83",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "dd7bed7e-1365-4146-bbce-92a635feb51c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 757,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 20000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 20000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.1.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
